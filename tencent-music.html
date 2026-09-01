@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260901ap" />
+    <link rel="stylesheet" href="styles.css?v=20260901bf" />
   </head>
   <body>
     <header class="site-header">
@@ -558,27 +558,6 @@
                 </p>
               </blockquote>
             </div>
-
-            <div class="validate-flow">
-              <article class="validate-flow-card">
-                <h4 class="zh">原因</h4>
-                <p class="zh">
-                  通用 Token 规定页面使用灰底，但提示词中的参考界面是白底。
-                </p>
-              </article>
-              <span class="validate-flow-arrow" aria-hidden="true">→</span>
-              <article class="validate-flow-card">
-                <h4 class="zh">结果</h4>
-                <p class="zh">
-                  模型选择遵循文本规则，而非提示词中的参考界面。
-                </p>
-              </article>
-              <span class="validate-flow-arrow" aria-hidden="true">→</span>
-              <article class="validate-flow-card">
-                <h4 class="zh">迭代</h4>
-                <p class="zh">回写规则，补充优先级</p>
-              </article>
-            </div>
           </section>
 
           <section class="report-module" aria-labelledby="p01-iterate">
@@ -852,45 +831,45 @@
 
           <section class="report-module bet-background" aria-labelledby="bet-background-title">
             <h3 id="bet-background-title" class="zh">项目背景</h3>
+
             <p class="report-module-note zh">
-              入职时，QQ 音乐站内正在做世界杯竞猜；这让我联想到海外快速增长的“预测市场”。
+              通过竞猜玩法活动，为 QQ 音乐和酷狗站内用户创造主动观看激励视频的机会。QQ
+              音乐世界杯竞猜需要看广告才能获得投注机会——这一机制与海外预测市场高度相似。
             </p>
 
             <div class="bet-origin-grid">
               <figure class="bet-origin-shot">
                 <figcaption class="zh">
-                  <strong>站内触发</strong>
-                  <span>QQ 音乐世界杯竞猜</span>
+                  <strong>QQ 音乐世界杯竞猜</strong>
+                  <span>看广告获得投注机会</span>
                 </figcaption>
                 <div class="bet-origin-image">
                   <img
                     src="assets/世界杯猜球.png"
                     alt="QQ音乐世界杯足球有奖竞猜活动页面"
-                    width="416"
-                    height="1024"
+                    width="632"
+                    height="1560"
                   />
                 </div>
               </figure>
 
-              <span class="bet-origin-arrow" aria-hidden="true">→</span>
-
               <figure class="bet-origin-shot">
                 <figcaption class="zh">
-                  <strong>海外参照</strong>
-                  <span>Kalshi 预测市场</span>
+                  <strong>Kalshi 预测市场</strong>
+                  <span>相似机制，已有成熟规模</span>
                 </figcaption>
                 <div class="bet-origin-image">
                   <img
-                    src="assets/海外调研.png"
+                    src="assets/预测市场/kalshi-culture.png?v=2"
                     alt="Kalshi文化与音乐类预测市场界面"
-                    width="473"
-                    height="1024"
+                    width="1290"
+                    height="2796"
                   />
                 </div>
               </figure>
 
               <article class="bet-market-proof">
-                <p class="bet-proof-kicker zh">市场规模验证</p>
+                <p class="bet-proof-kicker zh">市场规模</p>
                 <h4 class="zh">音乐预测不只是小众尝试</h4>
 
                 <div class="bet-volume-growth" aria-label="Kalshi音乐市场交易额增长">
@@ -922,8 +901,170 @@
             </div>
 
             <p class="bet-background-thesis zh">
-              站内竞猜验证了参与门槛，海外市场验证了参与规模：人们愿意围绕未揭晓的结果持续表达判断并关注进展。
+              世界杯竞猜已验证“看广告换投注机会”可行；海外预测市场则证明同类机制能形成持续参与。
             </p>
+          </section>
+
+          <section class="report-module bet-compete" aria-labelledby="bet-compete-title">
+            <h3 id="bet-compete-title" class="zh">竞品分析</h3>
+            <p class="report-module-note zh">
+              对照 Polymarket 投机社区与 Kalshi 金融交易所，看现有预测市场有哪些可借鉴的设计点。
+            </p>
+
+            <div class="bet-comp-grid">
+              <article>
+                <p class="bet-comp-num">01</p>
+                <h4 class="zh">实时查看赔率</h4>
+                <div class="bet-comp-shots">
+                  <figure>
+                    <div class="bet-comp-frame">
+                      <img
+                        src="assets/预测市场/poly-odds.png?v=2"
+                        alt="Polymarket 实时赔率走势"
+                        width="375"
+                        height="812"
+                      />
+                    </div>
+                    <figcaption>Polymarket</figcaption>
+                  </figure>
+                  <figure>
+                    <div class="bet-comp-frame">
+                      <img
+                        src="assets/预测市场/kalshi-odds.png?v=2"
+                        alt="Kalshi 实时赔率走势"
+                        width="375"
+                        height="812"
+                      />
+                    </div>
+                    <figcaption>Kalshi</figcaption>
+                  </figure>
+                </div>
+                <p class="zh">赔率随赛况实时跳动，判断被做成可比较的数字。</p>
+              </article>
+
+              <article>
+                <p class="bet-comp-num">02</p>
+                <h4 class="zh">实时计算奖金</h4>
+                <div class="bet-comp-shots">
+                  <figure>
+                    <div class="bet-comp-frame">
+                      <img
+                        src="assets/预测市场/poly-payout-fav.png?v=3"
+                        alt="预测市场热门盘奖金计算"
+                        width="1290"
+                        height="2796"
+                      />
+                    </div>
+                    <figcaption>热门盘</figcaption>
+                  </figure>
+                  <figure>
+                    <div class="bet-comp-frame">
+                      <img
+                        src="assets/预测市场/poly-payout-long.png?v=3"
+                        alt="预测市场冷门盘奖金计算"
+                        width="1290"
+                        height="2796"
+                      />
+                    </div>
+                    <figcaption>冷门盘</figcaption>
+                  </figure>
+                </div>
+                <p class="zh">投入金额立刻换算潜在回报，选择带上博弈感。</p>
+              </article>
+
+              <article>
+                <p class="bet-comp-num">03</p>
+                <h4 class="zh">嘲讽玩法</h4>
+                <div class="bet-comp-shots">
+                  <figure>
+                    <div class="bet-comp-frame">
+                      <img
+                        src="assets/预测市场/poly-social-card.png?v=2"
+                        alt="Polymarket 聊天中的晒单卡片"
+                        width="375"
+                        height="812"
+                      />
+                    </div>
+                    <figcaption>晒单</figcaption>
+                  </figure>
+                  <figure>
+                    <div class="bet-comp-frame">
+                      <img
+                        src="assets/预测市场/poly-social-chat.png?v=2"
+                        alt="Polymarket 聊天中的持仓标签"
+                        width="375"
+                        height="812"
+                      />
+                    </div>
+                    <figcaption>聊天</figcaption>
+                  </figure>
+                </div>
+                <p class="zh">把仓位晒进聊天，预测变成可被围观的社交行为。</p>
+              </article>
+
+              <article>
+                <p class="bet-comp-num">04</p>
+                <h4 class="zh">音乐类话题</h4>
+                <div class="bet-comp-shots">
+                  <figure>
+                    <div class="bet-comp-frame">
+                      <img
+                        src="assets/预测市场/kalshi-music.png?v=2"
+                        alt="Kalshi 音乐播放量预测话题"
+                        width="1290"
+                        height="2796"
+                      />
+                    </div>
+                    <figcaption>Music</figcaption>
+                  </figure>
+                  <figure>
+                    <div class="bet-comp-frame">
+                      <img
+                        src="assets/预测市场/kalshi-culture.png?v=2"
+                        alt="Kalshi 文化分类中的歌手话题"
+                        width="1290"
+                        height="2796"
+                      />
+                    </div>
+                    <figcaption>Culture</figcaption>
+                  </figure>
+                </div>
+                <p class="zh">Kalshi 已把歌手与播放量做成可交易话题，音乐场景可直接迁移。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="report-module bet-loop" aria-labelledby="bet-loop-title">
+            <h3 id="bet-loop-title" class="zh">玩法闭环</h3>
+            <p class="report-module-note zh">
+              从海外预测市场抽出一条可循环的参与路径。
+            </p>
+
+            <div class="bet-loop-cards" aria-label="预测玩法闭环">
+              <article>
+                <p class="bet-loop-num">01</p>
+                <h4 class="zh">观察局势</h4>
+                <p class="zh">一眼看到多数与少数，冷门方有溢价。分歧本身就是让人想参与的信息。</p>
+              </article>
+              <span class="bet-loop-arrow" aria-hidden="true">→</span>
+              <article>
+                <p class="bet-loop-num">02</p>
+                <h4 class="zh">做出判断</h4>
+                <p class="zh">选边、选投票量，立刻算出预计回报。判断的代价和收益都是可见的。</p>
+              </article>
+              <span class="bet-loop-arrow" aria-hidden="true">→</span>
+              <article>
+                <p class="bet-loop-num">03</p>
+                <h4 class="zh">反馈与再押</h4>
+                <p class="zh">投完立刻改写占比，也可以补投另一边，把判断继续加码。</p>
+              </article>
+              <span class="bet-loop-arrow" aria-hidden="true">→</span>
+              <article>
+                <p class="bet-loop-num">04</p>
+                <h4 class="zh">结算揭晓</h4>
+                <p class="zh">悬念挂在公布时间上，到点必须回来看。结算完，下一个话题接着开始。</p>
+              </article>
+            </div>
           </section>
 
           <section class="report-module bet-motivation" aria-labelledby="bet-motivation-title">
