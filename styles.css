@@ -38,6 +38,12 @@ body {
 .zh {
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
     "Noto Sans SC", sans-serif;
+  text-wrap: pretty;
+  line-break: strict;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .site-header {
@@ -1885,26 +1891,50 @@ body {
 
 .resume {
   min-height: 100svh;
-  padding: 8rem var(--header-pad) 5rem;
+  padding: 8rem var(--header-pad) 6rem;
   background-color: var(--bg-cream);
+  display: grid;
+  align-content: end;
+  justify-items: center;
 }
 
 .resume-grid {
   width: min(1120px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr) minmax(0, 0.9fr);
-  gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: start;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr) minmax(0, 1fr);
+  column-gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: stretch;
+}
+
+.resume-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.resume-intro {
+  margin-top: calc(-1 * clamp(2rem, 4vw, 4rem));
+  margin-bottom: auto;
 }
 
 .resume-name {
-  margin: 0 0 3.25rem;
+  margin: 0 0 1rem;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   font-size: clamp(2.6rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.04em;
+}
+
+.resume-meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  color: rgba(34, 34, 34, 0.5);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
 }
 
 .resume-heading {
@@ -1915,16 +1945,12 @@ body {
   letter-spacing: 0.04em;
 }
 
-.resume-heading--top {
-  margin-bottom: calc(clamp(2.6rem, 5vw, 4rem) * 1.1 + 3.25rem - 1.05rem);
-}
-
-.resume-slot {
-  display: none;
-}
-
 .resume-block + .resume-block {
-  margin-top: 2.5rem;
+  margin-top: 3rem;
+}
+
+.resume-intro + .resume-block {
+  margin-top: clamp(3rem, 6vw, 5rem);
 }
 
 .edu-timeline {
@@ -1992,22 +2018,42 @@ body {
 }
 
 .resume-entry + .resume-entry {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.entry-eyebrow {
+  margin: 0 0 0.3rem;
+  color: rgba(34, 34, 34, 0.4);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
 }
 
 .resume-entry h3 {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.3rem;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: 0.98rem;
+  font-size: 1.06rem;
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
-.resume-entry-sub {
-  margin: 0 0 0.35rem;
-  color: var(--text);
-  font-size: 0.9rem;
-  line-height: 1.45;
+.resume-entry h3 .entry-zh {
+  font-size: 0.86em;
+  font-weight: 500;
+  color: rgba(34, 34, 34, 0.68);
+  letter-spacing: 0.01em;
+}
+
+.resume-entry h3 .entry-zh::before {
+  content: "｜";
+  color: rgba(34, 34, 34, 0.25);
+  font-weight: 400;
+}
+
+.entry-desc {
+  margin: 0.45rem 0 0;
 }
 
 .resume-entry > p:last-child {
@@ -2079,15 +2125,24 @@ body {
 
   .resume-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    row-gap: 2.5rem;
+  }
+
+  .resume-col {
+    justify-content: flex-start;
+  }
+
+  .resume-intro {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .resume-intro + .resume-block {
+    margin-top: 2.5rem;
   }
 
   .resume-name {
-    margin-bottom: 2rem;
-  }
-
-  .resume-heading--top {
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.85rem;
   }
 }
 
@@ -2460,6 +2515,314 @@ body {
   }
 }
 
+/* ---------- 星宠蓄电屋：项目背景 ---------- */
+
+.pet-background > .report-module-note {
+  margin-bottom: clamp(1.15rem, 2vw, 1.5rem);
+  font-size: clamp(0.88rem, 1.05vw, 0.98rem);
+  line-height: 1.7;
+}
+
+.pet-background-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: stretch;
+}
+
+.pet-phase-shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.55rem, 1vw, 0.85rem);
+  align-items: start;
+  min-width: 0;
+}
+
+.pet-phase-shot {
+  min-width: 0;
+  margin: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pet-phase-shot img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.pet-status-stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: clamp(0.85rem, 1.5vw, 1.15rem);
+  min-width: 0;
+  min-height: 100%;
+}
+
+.pet-status-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(1.05rem, 1.8vw, 1.35rem);
+  border-radius: 14px;
+  text-align: center;
+  background: linear-gradient(
+    155deg,
+    #ece7e1 0%,
+    #e7e1da 52%,
+    #e0d9d1 100%
+  );
+}
+
+.pet-status-num {
+  flex: 0 0 auto;
+  padding-top: 0;
+  color: rgba(34, 34, 34, 0.42);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.pet-status-card h4,
+.pet-status-card p {
+  margin: 0;
+  text-align: center;
+}
+
+.pet-status-card > div {
+  max-width: 36rem;
+}
+
+.pet-status-card h4 {
+  margin-bottom: 0.4rem;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: clamp(1.05rem, 1.35vw, 1.18rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.pet-status-card p {
+  color: var(--text-muted);
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
+  line-height: 1.65;
+}
+
+/* ---------- 星宠蓄电屋：玩法思路 ---------- */
+
+.pet-concept > .report-module-note,
+.pet-actions > .report-module-note {
+  margin-bottom: clamp(1.15rem, 2vw, 1.5rem);
+  font-size: clamp(0.88rem, 1.05vw, 0.98rem);
+  line-height: 1.7;
+}
+
+.pet-concept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.85rem, 1.5vw, 1.15rem);
+}
+
+.pet-concept-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(1.05rem, 1.8vw, 1.35rem);
+  border-radius: 16px;
+  background: linear-gradient(
+    155deg,
+    #ece7e1 0%,
+    #e7e1da 52%,
+    #e0d9d1 100%
+  );
+}
+
+.pet-concept-card--accent {
+  background: linear-gradient(150deg, #2d2e32 0%, #222327 100%);
+  color: #fff;
+}
+
+.pet-concept-label {
+  margin: 0 0 0.45rem;
+  color: rgba(34, 34, 34, 0.48);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.pet-concept-card--accent .pet-concept-label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pet-concept-card h4 {
+  margin: 0 0 0.55rem;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.pet-concept-card > p:last-child {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
+  line-height: 1.65;
+}
+
+.pet-concept-card--accent > p:last-child {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.pet-concept-points {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
+  line-height: 1.65;
+}
+
+.pet-concept-points li {
+  position: relative;
+  padding-left: 0.9rem;
+}
+
+.pet-concept-points li::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- 星宠蓄电屋：核心动作 ---------- */
+
+.pet-actions-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.85rem, 1.5vw, 1.15rem);
+  margin-bottom: clamp(1rem, 1.8vw, 1.35rem);
+}
+
+.pet-actions-group {
+  min-width: 0;
+  padding: clamp(1.05rem, 1.8vw, 1.35rem);
+  border-radius: 16px;
+  background: linear-gradient(
+    155deg,
+    #ece7e1 0%,
+    #e7e1da 52%,
+    #e0d9d1 100%
+  );
+}
+
+.pet-actions-kicker {
+  margin: 0 0 0.85rem;
+  color: rgba(34, 34, 34, 0.48);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.pet-actions-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.pet-actions-list article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  margin: 0;
+}
+
+.pet-action-tag {
+  display: inline-grid;
+  place-items: center;
+  min-width: 3.4rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.pet-actions-list h4,
+.pet-actions-list p {
+  margin: 0;
+}
+
+.pet-actions-list h4 {
+  margin-bottom: 0.25rem;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.pet-actions-list p {
+  color: var(--text-muted);
+  font-size: clamp(0.76rem, 0.9vw, 0.84rem);
+  line-height: 1.6;
+}
+
+.pet-limits {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.95rem 1.05rem;
+  border-left: 2px solid rgba(34, 34, 34, 0.65);
+  background: rgba(232, 226, 220, 0.58);
+}
+
+.pet-limits-label,
+.pet-limits-list {
+  margin: 0;
+}
+
+.pet-limits-label {
+  color: rgba(34, 34, 34, 0.48);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.pet-limits-list {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 1.15rem;
+  color: var(--text);
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+@media (max-width: 560px) {
+  .pet-concept-grid,
+  .pet-actions-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- 押个乐子：背景与用户动机 ---------- */
 
 .bet-background > .report-module-note {
@@ -2629,20 +2992,21 @@ body {
   line-height: 1.6;
 }
 
-.bet-motivation-layout {
+/* ---------- 押个乐子：商业逻辑 ---------- */
+
+.bet-value-grid {
   display: grid;
-  grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1.35fr);
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: stretch;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.4vw, 1rem);
+  margin-top: clamp(1rem, 1.8vw, 1.35rem);
 }
 
-.bet-motivation-thesis {
-  container-type: inline-size;
+.bet-value-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: clamp(1.5rem, 3vw, 2.25rem);
-  border-radius: 18px;
+  min-width: 0;
+  padding: clamp(1.05rem, 1.8vw, 1.35rem);
+  border-radius: 16px;
   background: linear-gradient(
     155deg,
     #ece7e1 0%,
@@ -2651,98 +3015,703 @@ body {
   );
 }
 
-.bet-motivation-thesis > p:not(.bet-motivation-line) {
-  margin: 0 0 1rem;
-  color: var(--text-muted);
-  font-size: 0.78rem;
+.bet-value-card--biz {
+  background: linear-gradient(150deg, #2d2e32 0%, #222327 100%);
+  color: #fff;
+}
+
+.bet-value-label {
+  margin: 0 0 0.45rem;
+  color: rgba(34, 34, 34, 0.48);
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
-.bet-motivation-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  width: 100%;
-  margin-bottom: 1.2rem;
+.bet-value-card--biz .bet-value-label {
+  color: rgba(255, 255, 255, 0.55);
 }
 
-.bet-motivation-thesis .bet-motivation-line {
-  margin: 0;
-  width: 100%;
+.bet-value-card h4 {
+  margin: 0 0 0.55rem;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: clamp(1.2rem, calc(100cqw / 9), 2.65rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem);
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0;
-  white-space: nowrap;
+  line-height: 1.35;
 }
 
-.bet-motivation-thesis span {
+.bet-value-card p:last-child {
+  margin: 0;
   color: var(--text-muted);
-  font-size: 0.82rem;
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
   line-height: 1.65;
 }
 
-.bet-motivation-list {
-  border-top: 1px solid rgba(34, 34, 34, 0.2);
-}
-
-.bet-motivation-item {
+.bet-value-points {
   display: grid;
-  grid-template-columns: 3.2rem minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
-  padding: clamp(1.05rem, 2.2vw, 1.5rem) 0;
-  border-bottom: 1px solid rgba(34, 34, 34, 0.2);
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
+  line-height: 1.65;
 }
 
-.bet-motivation-num {
-  padding-top: 0.12rem;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.4rem;
-  line-height: 1;
+.bet-value-points li {
+  position: relative;
+  padding-left: 0.9rem;
 }
 
-.bet-motivation-item h4 {
-  margin: 0 0 0.5rem;
-  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: clamp(1.12rem, 1.65vw, 1.4rem);
+.bet-value-points li::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: rgba(34, 34, 34, 0.42);
+}
+
+.bet-value-card--biz p:last-child {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.case--report .report-module.bet-value > .bet-value-loop.zh {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.75rem, 1.4vw, 1.1rem);
+  margin: clamp(1.5rem, 2.6vw, 2rem) 0 0;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid rgba(34, 34, 34, 0.65);
+  background: rgba(232, 226, 220, 0.58);
+  color: var(--text);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.bet-value-loop strong {
+  flex: 0 0 auto;
+  font-size: clamp(0.82rem, 0.95vw, 0.9rem);
   font-weight: 600;
 }
 
-.bet-motivation-item p {
+.bet-value-loop span {
+  color: var(--text-muted);
+  font-size: clamp(0.76rem, 0.9vw, 0.84rem);
+  line-height: 1.55;
+}
+
+@media (max-width: 560px) {
+  .bet-value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case--report .report-module.bet-value > .bet-value-loop.zh {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+.bet-motivation > .report-module-note {
+  margin-bottom: clamp(1.35rem, 2.6vw, 2rem);
+}
+
+.bet-opp-flow {
+  display: grid;
+  gap: clamp(0.75rem, 1.4vw, 1rem);
+}
+
+.bet-opp-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) auto minmax(0, 1.25fr);
+  gap: clamp(0.8rem, 1.6vw, 1.3rem);
+  margin-bottom: 0.65rem;
+  padding: 0 clamp(1rem, 1.6vw, 1.25rem);
+  color: rgba(34, 34, 34, 0.48);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.bet-opp-columns > span:nth-child(3) {
+  padding-left: clamp(1.1rem, 1.8vw, 1.4rem);
+}
+
+.bet-opp-item {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) auto minmax(0, 1.25fr);
+  gap: clamp(0.8rem, 1.6vw, 1.3rem);
+  align-items: stretch;
+}
+
+.bet-opp-motive,
+.bet-opp-opportunity {
+  min-width: 0;
+  border-radius: 14px;
+}
+
+.bet-opp-motive {
+  display: flex;
+  gap: clamp(0.85rem, 1.4vw, 1.15rem);
+  align-items: center;
+  padding: clamp(1rem, 1.6vw, 1.25rem);
+  background: linear-gradient(
+    155deg,
+    #ece7e1 0%,
+    #e7e1da 52%,
+    #e0d9d1 100%
+  );
+}
+
+.bet-opp-num {
+  color: rgba(34, 34, 34, 0.42);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.bet-opp-motive h4 {
+  margin: 0 0 0.35rem;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.bet-opp-motive p {
   margin: 0;
   color: var(--text-muted);
-  font-size: clamp(0.85rem, 1vw, 0.94rem);
-  line-height: 1.7;
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
+  line-height: 1.55;
 }
 
-.bet-compete > .report-module-note {
-  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+.bet-opp-arrow {
+  display: grid;
+  place-items: center;
+  align-self: center;
+  color: rgba(34, 34, 34, 0.35);
+  font-size: 1.2rem;
 }
 
-.bet-loop > .report-module-note {
-  margin-bottom: clamp(1.15rem, 2.2vw, 1.75rem);
+.bet-opp-opportunity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1rem, 1.6vw, 1.25rem) clamp(1.1rem, 1.8vw, 1.4rem);
+  background: linear-gradient(
+    155deg,
+    rgba(236, 231, 225, 0.62) 0%,
+    rgba(231, 225, 218, 0.72) 100%
+  );
 }
 
-.bet-loop-cards {
+.bet-opp-opportunity h4 {
+  margin: 0 0 0.35rem;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.bet-opp-opportunity p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
+  line-height: 1.55;
+}
+
+.bet-product > .report-module-note {
+  margin-bottom: clamp(1rem, 1.8vw, 1.35rem);
+}
+
+.bet-product-strategy {
+  padding-top: clamp(0.85rem, 1.4vw, 1.1rem);
+  border-top: 1px solid rgba(34, 34, 34, 0.18);
+}
+
+.bet-product-heading {
+  margin-bottom: clamp(0.8rem, 1.4vw, 1.1rem);
+}
+
+.bet-product-heading h4 {
+  margin: 0;
+}
+
+.bet-product-heading h4 {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: clamp(1.02rem, 1.35vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.bet-product-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.65fr);
+  gap: clamp(1rem, 2vw, 1.7rem);
+  align-items: end;
+}
+
+.bet-home-group {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(0.65rem, 1.2vw, 1rem);
+  align-items: stretch;
+}
+
+.bet-home-callouts {
+  position: relative;
+  width: clamp(4.6rem, 7vw, 5.4rem);
+  align-self: stretch;
+  margin: 2.55rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bet-home-callouts li {
+  position: absolute;
+  right: 0;
+  padding-right: 1.1rem;
+  color: var(--text-muted);
+  font-size: clamp(0.7rem, 0.82vw, 0.78rem);
+  line-height: 1.35;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.bet-home-callouts li:nth-child(1) {
+  top: 27%;
+}
+
+.bet-home-callouts li:nth-child(2) {
+  top: 62%;
+}
+
+.bet-home-callouts li:nth-child(3) {
+  top: 86%;
+}
+
+.bet-home-callouts li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0.75rem;
+  border-top: 1px solid rgba(34, 34, 34, 0.3);
+}
+
+.bet-product-phone {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+}
+
+.bet-product-phone figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  min-height: 2.15rem;
+  margin-bottom: 0.45rem;
+}
+
+.bet-product-phone figcaption strong {
+  font-size: clamp(0.76rem, 0.9vw, 0.84rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.bet-product-phone figcaption span {
+  color: rgba(34, 34, 34, 0.48);
+  font-size: 0.66rem;
+  line-height: 1.35;
+}
+
+.bet-product-phone img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: min(47svh, 400px);
+  margin: 0;
+  object-fit: contain;
+  object-position: top left;
+}
+
+.bet-product-phone--hero img {
+  max-height: min(50svh, 430px);
+}
+
+.pet-product .bet-product-strategy + .bet-product-strategy,
+.pet-flow-block + .pet-flow-block {
+  margin-top: clamp(1.35rem, 2.4vw, 1.9rem);
+}
+
+.pet-visit-path {
+  display: block;
+}
+
+.pet-visit-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 2.55fr);
+  grid-template-rows: auto auto;
+  column-gap: 1rem;
+  row-gap: 0.55rem;
+  align-items: end;
+  width: 100%;
+}
+
+.pet-visit-home {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.pet-visit-trail-phones {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  align-items: end;
+}
+
+.pet-visit-trail-phones .pet-equal-phone img {
+  width: 100%;
+  transform: scale(0.92);
+  transform-origin: bottom center;
+}
+
+.pet-swipe-hint {
+  grid-column: 2;
+  grid-row: 2;
+  display: block;
+  width: min(100%, 11.5rem);
+  height: auto;
+  margin: 0 0 0 0.15rem;
+}
+
+.pet-equal-phones {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.pet-equal-phone {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  width: 0;
+  min-width: 0;
+  margin: 0;
+}
+
+.pet-visit-home.pet-equal-phone {
+  flex: none;
+  width: 100%;
+  min-width: 0;
+}
+
+.pet-visit-home.pet-equal-phone img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.pet-equal-phone figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  min-height: 2.35rem;
+  margin: 0 0 0.45rem;
+}
+
+.pet-equal-phone figcaption strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: clamp(0.76rem, 0.9vw, 0.84rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.pet-equal-phone figcaption strong i {
+  display: grid;
+  place-items: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #ddd6cf;
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  font-size: 0.62rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.pet-equal-phone figcaption span {
+  color: rgba(34, 34, 34, 0.48);
+  font-size: 0.66rem;
+  line-height: 1.35;
+}
+
+.pet-equal-phone img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.pet-flow-row {
+  display: grid;
+  gap: clamp(0.7rem, 1.35vw, 1.1rem);
+  align-items: start;
+}
+
+.pet-flow-row--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: min(100%, 820px);
+}
+
+.pet-flow-row--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.pet-flow-row .bet-product-phone img {
+  max-height: none;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.pet-flow-note {
+  margin: clamp(0.75rem, 1.4vw, 1rem) 0 0;
+  color: rgba(34, 34, 34, 0.62);
+  font-size: clamp(0.78rem, 0.95vw, 0.88rem);
+  line-height: 1.55;
+}
+
+.bet-path-group {
+  min-width: 0;
+}
+
+.bet-path-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.65rem, 1.2vw, 1rem);
+  margin: 0 0 0.5rem;
+}
+
+.bet-path-steps span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  line-height: 1.3;
+}
+
+.bet-path-steps span:not(:last-child)::after {
+  content: "";
+  flex: 1;
+  min-width: 0.75rem;
+  border-top: 1px solid rgba(34, 34, 34, 0.28);
+}
+
+.bet-path-steps i {
+  display: grid;
+  place-items: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #ddd6cf;
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  font-size: 0.62rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.bet-path-screens {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.5rem, 0.9vw, 0.75rem);
+  align-items: end;
+}
+
+.bet-economy > .report-module-note {
+  margin-bottom: 0.85rem;
+}
+
+.bet-economy-thesis {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
+  margin-bottom: clamp(1rem, 1.8vw, 1.35rem);
+  padding: 0.7rem 0.95rem;
+  border-left: 2px solid rgba(34, 34, 34, 0.65);
+  background: rgba(232, 226, 220, 0.58);
+}
+
+.bet-economy-thesis strong {
+  flex: 0 0 auto;
+  font-size: clamp(0.86rem, 1vw, 0.94rem);
+  font-weight: 600;
+}
+
+.bet-economy-thesis span {
+  color: var(--text-muted);
+  font-size: clamp(0.76rem, 0.9vw, 0.84rem);
+  line-height: 1.5;
+}
+
+.bet-economy-flow {
   display: grid;
   grid-template-columns:
     minmax(0, 1fr) auto
     minmax(0, 1fr) auto
-    minmax(0, 1fr) auto
     minmax(0, 1fr);
-  gap: clamp(0.45rem, 0.9vw, 0.75rem);
+  gap: clamp(0.65rem, 1.3vw, 1rem);
   align-items: stretch;
 }
 
-.bet-loop-cards > article {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+.bet-economy-step {
+  display: grid;
+  grid-template-rows: auto auto;
   min-width: 0;
-  padding: clamp(0.85rem, 1.5vw, 1.15rem);
+  margin: 0;
+  padding: 0 clamp(0.4rem, 0.8vw, 0.65rem);
+}
+
+.bet-economy-step header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  min-height: 3.25rem;
+  margin-bottom: 0.55rem;
+}
+
+.bet-economy-step header > span {
+  padding-top: 0.15rem;
+  color: rgba(34, 34, 34, 0.42);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.bet-economy-step h4,
+.bet-economy-step header p {
+  margin: 0;
+}
+
+.bet-economy-step h4 {
+  margin-bottom: 0.2rem;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: clamp(0.92rem, 1.15vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.bet-economy-step header p {
+  color: rgba(34, 34, 34, 0.48);
+  font-size: 0.68rem;
+  line-height: 1.4;
+}
+
+.bet-economy-step img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: min(52svh, 440px);
+  margin: 0 auto;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: 18px;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.bet-economy-arrow {
+  display: grid;
+  place-items: center;
+  align-self: center;
+  color: rgba(34, 34, 34, 0.32);
+  font-size: 1.15rem;
+}
+
+.bet-interaction-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.6vw, 1.35rem);
+  margin-top: clamp(1.15rem, 2vw, 1.6rem);
+}
+
+.bet-interaction-grid figure {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: start;
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 0;
+}
+
+.bet-interaction-grid figcaption {
+  display: flex;
+  align-items: baseline;
+  min-height: 2.5rem;
+}
+
+.bet-interaction-grid figcaption strong {
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.bet-interaction-frame {
+  min-width: 0;
+}
+
+.bet-interaction-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bet-interaction-grid figure:nth-child(2) img {
+  transform: scale(1.09);
+  transform-origin: top center;
+}
+
+.bet-interaction-grid figure:nth-child(3) img {
+  transform: scale(1.08);
+  transform-origin: top center;
+}
+
+.bet-phase-two-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+  align-items: stretch;
+  margin-top: clamp(1.15rem, 2vw, 1.6rem);
+}
+
+.bet-phase-two-cards {
+  display: grid;
+  gap: clamp(0.75rem, 1.4vw, 1rem);
+}
+
+.bet-phase-two-cards article {
+  display: flex;
+  gap: clamp(0.85rem, 1.4vw, 1.15rem);
+  align-items: flex-start;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(1.05rem, 1.8vw, 1.35rem);
   border-radius: 14px;
   background: linear-gradient(
     155deg,
@@ -2752,88 +3721,132 @@ body {
   );
 }
 
-.bet-loop-num {
-  margin: 0;
-  color: rgba(34, 34, 34, 0.45);
+.bet-phase-two-num {
+  flex: 0 0 auto;
+  padding-top: 0.2rem;
+  color: rgba(34, 34, 34, 0.42);
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 0.95rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-size: 1rem;
   line-height: 1;
 }
 
-.bet-loop-cards h4 {
+.bet-phase-two-cards h4,
+.bet-phase-two-cards p {
   margin: 0;
+}
+
+.bet-phase-two-cards h4 {
+  margin-bottom: 0.35rem;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: clamp(0.92rem, 1.15vw, 1.05rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.18rem);
   font-weight: 600;
-  letter-spacing: 0.02em;
   line-height: 1.35;
 }
 
-.bet-loop-cards p {
-  margin: 0;
+.bet-phase-two-cards p {
   color: var(--text-muted);
-  font-size: clamp(0.76rem, 0.88vw, 0.84rem);
+  font-size: clamp(0.78rem, 0.92vw, 0.86rem);
   line-height: 1.6;
-  text-wrap: pretty;
 }
 
-.bet-loop-arrow {
+.bet-phase-two-pool {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 0;
+  padding: clamp(1.05rem, 1.8vw, 1.35rem);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent 40%),
+    linear-gradient(155deg, #ece7e1 0%, #e7e1da 52%, #e0d9d1 100%);
+}
+
+.bet-phase-two-pool-label,
+.bet-phase-two-pool-title {
+  margin: 0;
+}
+
+.bet-phase-two-pool-label {
+  color: rgba(34, 34, 34, 0.48);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.bet-phase-two-pool-title {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.bet-phase-two-options {
   display: grid;
-  place-items: center;
-  align-self: center;
-  color: rgba(34, 34, 34, 0.35);
-  font-size: 1.15rem;
-  line-height: 1;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-@media (max-width: 900px) {
-  .bet-loop-cards {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 0.75rem;
-  }
-
-  .bet-loop-arrow {
-    display: none;
-  }
+.bet-phase-two-options li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.55);
+  color: rgba(34, 34, 34, 0.78);
+  font-size: clamp(0.76rem, 0.9vw, 0.84rem);
+  line-height: 1.35;
 }
 
-@media (max-width: 560px) {
-  .bet-loop-cards {
-    grid-template-columns: 1fr;
-  }
+.bet-phase-two-options li span {
+  flex: 0 0 auto;
+  color: rgba(34, 34, 34, 0.4);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.82rem;
+}
+
+.bet-compete > .report-module-note {
+  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 .bet-comp-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 2.8vw, 2.25rem) clamp(1.25rem, 2.4vw, 2rem);
   align-items: stretch;
-  gap: 0;
 }
 
 .bet-comp-grid > article {
-  display: grid;
-  grid-template-rows: auto 2.6em auto auto;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   min-width: 0;
-  padding: 0 clamp(1rem, 1.6vw, 1.4rem);
+  min-height: 100%;
+  margin: 0;
+  padding: clamp(1.05rem, 1.8vw, 1.35rem);
+  border-radius: 16px;
+  background: linear-gradient(
+    155deg,
+    #ece7e1 0%,
+    #e7e1da 52%,
+    #e0d9d1 100%
+  );
 }
 
-.bet-comp-grid > article:first-child {
-  padding-left: 0;
-}
-
+.bet-comp-grid > article:first-child,
 .bet-comp-grid > article:last-child {
-  padding-right: 0;
+  padding-left: clamp(1.05rem, 1.8vw, 1.35rem);
+  padding-right: clamp(1.05rem, 1.8vw, 1.35rem);
 }
 
 .bet-comp-grid > article + article {
-  border-left: 1px solid rgba(34, 34, 34, 0.2);
+  border-left: 0;
 }
 
 .bet-comp-num {
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.55rem;
   color: rgba(34, 34, 34, 0.42);
   font-family: "Playfair Display", Georgia, serif;
   font-size: 0.92rem;
@@ -2841,9 +3854,10 @@ body {
 }
 
 .bet-comp-grid h4 {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.95rem;
+  min-height: 2.6em;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  font-size: clamp(1.1rem, 1.5vw, 1.32rem);
   font-weight: 600;
   line-height: 1.3;
 }
@@ -2851,30 +3865,33 @@ body {
 .bet-comp-shots {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.45rem;
-  margin: 0 0 0.85rem;
-  align-items: stretch;
+  gap: clamp(0.65rem, 1.2vw, 0.9rem);
+  flex: 1 1 auto;
+  margin: 0 0 0.95rem;
+  align-items: start;
 }
 
 .bet-comp-shots figure {
   display: grid;
-  grid-template-rows: auto 1.2em;
+  grid-template-rows: auto auto;
   margin: 0;
+  min-width: 0;
 }
 
 .bet-comp-frame {
   position: relative;
   width: 100%;
+  max-width: none;
+  aspect-ratio: 375 / 812;
+  margin-inline: 0;
   overflow: hidden;
-  border: 1px solid rgba(34, 34, 34, 0.1);
-  border-radius: 14px;
-  background: #ece7e1;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .bet-comp-frame::before {
-  content: "";
-  display: block;
-  padding-top: 216.533%;
+  content: none;
 }
 
 .bet-comp-frame img {
@@ -2887,15 +3904,19 @@ body {
 }
 
 .bet-comp-shots figcaption {
-  margin: 0.35rem 0 0;
+  display: flex;
+  align-items: center;
+  min-height: 1.2em;
+  margin: 0.4rem 0 0;
   color: rgba(34, 34, 34, 0.52);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   line-height: 1.2;
   white-space: nowrap;
 }
 
 .bet-comp-grid > article > p:last-child {
-  margin: 0;
+  margin: auto 0 0;
+  min-height: 3.3em;
   color: var(--text-muted);
   font-size: clamp(0.8rem, 0.95vw, 0.9rem);
   line-height: 1.65;
@@ -2903,6 +3924,72 @@ body {
 }
 
 @media (max-width: 900px) {
+  .bet-interaction-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1rem;
+  }
+
+  .pet-visit-layout {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+
+  .pet-visit-home,
+  .pet-visit-trail-phones,
+  .pet-swipe-hint {
+    grid-column: 1;
+  }
+
+  .pet-visit-home {
+    grid-row: 1;
+    max-width: calc(50% - 0.5rem);
+  }
+
+  .pet-visit-trail-phones {
+    grid-row: 2;
+  }
+
+  .pet-swipe-hint {
+    grid-row: 3;
+    width: min(100%, 10rem);
+  }
+
+  .pet-equal-phones {
+    flex-wrap: wrap;
+    gap: 1.25rem 1rem;
+  }
+
+  .pet-equal-phone {
+    flex: 1 1 calc(50% - 0.5rem);
+    width: auto;
+    max-width: calc(50% - 0.5rem);
+  }
+
+  .pet-flow-row--3,
+  .pet-flow-row--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: none;
+  }
+
+  .pet-visit-steps {
+    display: none;
+  }
+
+  .bet-product-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .bet-home-group {
+    width: min(100%, 360px);
+    margin: 0 auto;
+  }
+
+  .bet-product-phone img,
+  .bet-product-phone--hero img {
+    height: auto;
+    max-height: none;
+  }
+
   .bet-origin-grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
@@ -2913,47 +4000,129 @@ body {
     margin-left: 0;
   }
 
-  .bet-motivation-layout {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .bet-opp-item {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.15fr);
   }
 
   .bet-comp-grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 1.5rem 0;
+    gap: 1.25rem;
   }
 
   .bet-comp-grid > article {
-    padding: 0 1rem;
+    padding: 1rem;
   }
 
-  .bet-comp-grid > article:nth-child(odd) {
-    padding-left: 0;
+  .bet-comp-grid > article:nth-child(odd),
+  .bet-comp-grid > article:nth-child(even),
+  .bet-comp-grid > article:first-child,
+  .bet-comp-grid > article:last-child {
+    padding: 1rem;
   }
 
-  .bet-comp-grid > article:nth-child(even) {
-    padding-right: 0;
-  }
-
-  .bet-comp-grid > article + article {
-    border-left: 0;
-  }
-
-  .bet-comp-grid > article:nth-child(even) {
-    border-left: 1px solid rgba(34, 34, 34, 0.2);
-  }
-
+  .bet-comp-grid > article + article,
+  .bet-comp-grid > article:nth-child(even),
   .bet-comp-grid > article:nth-child(n + 3) {
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(34, 34, 34, 0.2);
-  }
-
-  .bet-comp-grid > article {
-    grid-template-rows: auto auto auto auto;
+    border: 0;
+    padding-top: 1rem;
   }
 }
 
 @media (max-width: 560px) {
+  .pet-background-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pet-phase-shots {
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+
+  .pet-status-stack {
+    grid-template-rows: auto auto;
+    min-height: 0;
+  }
+
+  .bet-phase-two-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .bet-interaction-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bet-interaction-grid figure {
+    width: min(100%, 300px);
+    margin-inline: auto;
+  }
+
+  .bet-economy-thesis {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .bet-economy-flow {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .bet-economy-arrow {
+    transform: rotate(90deg);
+  }
+
+  .bet-economy-step img {
+    width: min(100%, 280px);
+    height: auto;
+  }
+
+  .bet-path-steps {
+    display: none;
+  }
+
+  .bet-path-screens {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .pet-equal-phones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pet-equal-phone {
+    flex: none;
+    width: min(100%, 260px);
+    max-width: min(100%, 260px);
+  }
+
+  .pet-flow-row--3,
+  .pet-flow-row--4 {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .pet-flow-row .bet-product-phone {
+    width: min(100%, 260px);
+  }
+
+  .bet-product-phone img {
+    width: min(100%, 260px);
+  }
+
+  .bet-opp-columns {
+    display: none;
+  }
+
+  .bet-opp-item {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .bet-opp-arrow {
+    transform: rotate(90deg);
+  }
+
   .bet-origin-grid {
     grid-template-columns: 1fr;
   }
@@ -2969,26 +4138,21 @@ body {
 
   .bet-comp-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .bet-comp-grid > article,
   .bet-comp-grid > article:nth-child(odd),
-  .bet-comp-grid > article:nth-child(even) {
-    padding: 1.25rem 0 0;
-    border-left: 0;
-  }
-
-  .bet-comp-grid > article:first-child {
-    padding-top: 0;
+  .bet-comp-grid > article:nth-child(even),
+  .bet-comp-grid > article:first-child,
+  .bet-comp-grid > article:last-child {
+    padding: 1.05rem;
+    border: 0;
   }
 
   .bet-comp-grid > article + article,
   .bet-comp-grid > article:nth-child(n + 3) {
-    border-top: 1px solid rgba(34, 34, 34, 0.2);
-  }
-
-  .bet-comp-grid > article {
-    grid-template-rows: auto auto auto auto;
+    border: 0;
   }
 }
 
