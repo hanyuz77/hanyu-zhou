@@ -108,22 +108,41 @@ body {
 }
 
 .hero-inner {
+  position: relative;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
+  min-height: calc(100svh - 10rem);
+}
+
+.hero-intro {
+  position: absolute;
+  left: clamp(1.25rem, 6vw, 5rem);
+  top: 40%;
+  z-index: 1;
+  margin: 0;
+  max-width: calc(50% - min(42.5vw, 280px) - clamp(1rem, 2.5vw, 2rem));
+  transform: translateY(-50%);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.85rem, 3.5vw, 2.85rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .hero-vinyl {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .vinyl-frame {
-  width: min(92vw, 560px);
+  width: min(85vw, 560px);
   aspect-ratio: 1;
   border-radius: 50%;
   /* Even lift — large downward offset reads as a dark rim on a spinning circle */
@@ -557,15 +576,15 @@ body {
   line-height: 1.4;
 }
 
+.report-project--shell {
+  opacity: 0.72;
+}
+
 .report-project {
   margin: 0 0 5rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(34, 34, 34, 0.14);
   scroll-margin-top: 5.5rem;
-}
-
-.report-project--shell {
-  opacity: 0.72;
 }
 
 .report-project-header {
@@ -656,6 +675,14 @@ body {
 
 .report-caption-block + .case-media {
   margin-top: 1.35rem;
+}
+
+.report-reflection .report-caption-block {
+  margin-bottom: clamp(1.35rem, 2.2vw, 1.9rem);
+}
+
+.report-reflection .report-caption-block:last-child {
+  margin-bottom: 0;
 }
 
 .report-points {
@@ -2271,8 +2298,24 @@ body {
 }
 
 @media (max-width: 900px) {
+  .hero-inner {
+    min-height: calc(100svh - 8rem);
+  }
+
+  .hero-intro {
+    left: clamp(1.25rem, 6vw, 2.5rem);
+    top: auto;
+    bottom: clamp(1.5rem, 6vw, 2.5rem);
+    transform: none;
+    font-size: clamp(1.5rem, 5.5vw, 2rem);
+  }
+
+  .hero-vinyl {
+    top: 44%;
+  }
+
   .vinyl-frame {
-    width: min(82vw, 426px);
+    width: min(82vw, 360px);
   }
 
   .work {
