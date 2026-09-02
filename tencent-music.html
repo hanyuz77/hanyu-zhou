@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260902i" />
+    <link rel="stylesheet" href="styles.css?v=20260903c" />
   </head>
   <body>
     <header class="site-header">
@@ -21,6 +21,26 @@
         <a href="about.html" class="nav-link">About</a>
       </nav>
     </header>
+
+    <nav class="report-index" aria-label="项目目录">
+      <ol class="report-index-list">
+        <li>
+          <a href="#project-01" class="report-index-link">
+            <span class="report-index-num">01</span>
+          </a>
+        </li>
+        <li>
+          <a href="#project-02" class="report-index-link">
+            <span class="report-index-num">02</span>
+          </a>
+        </li>
+        <li>
+          <a href="#project-03" class="report-index-link">
+            <span class="report-index-num">03</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
 
     <main>
       <article class="case case--report" aria-labelledby="case-title">
@@ -177,7 +197,7 @@
           </section>
 
           <section class="report-module" aria-labelledby="p01-why">
-            <h3 id="p01-why" class="zh">为什么B端设计适合AI生产？</h3>
+            <h3 id="p01-why" class="zh">为什么音乐推B端适合AI生产？</h3>
             <div class="b2b-ai-grid">
               <article class="b2b-ai-point">
                 <p class="b2b-ai-num">01</p>
@@ -199,10 +219,10 @@
 
               <article class="b2b-ai-point">
                 <p class="b2b-ai-num">03</p>
-                <h4 class="zh">权威基准明确</h4>
-                <strong class="zh">AI 有可校验的事实依据</strong>
+                <h4 class="zh">快速验证</h4>
+                <strong class="zh">AI 可快速产出多套交互框架</strong>
                 <p class="zh">
-                  定稿标杆界面可用于规则提取，并作为生成结果的校验基准。
+                  音乐推B端十分依赖售卖业务的交互逻辑，而AI可以快速验证。
                 </p>
               </article>
             </div>
@@ -235,14 +255,14 @@
                   <p class="flow-node-sub">Figma / Builder / Locofy</p>
                 </div>
 
-                <div class="flow-node flow-node--top">
+                <div class="flow-node flow-node--light flow-node--top">
                   <p class="flow-node-title zh">设计规则约束</p>
                   <p class="flow-node-sub">Token / Components / DESIGN.md</p>
                 </div>
                 <span class="flow-arrow flow-arrow--down" aria-hidden="true"></span>
 
                 <span class="flow-arrow flow-arrow--up" aria-hidden="true"></span>
-                <div class="flow-node flow-node--bottom">
+                <div class="flow-node flow-node--light flow-node--bottom">
                   <p class="flow-node-title zh">接入设计资产</p>
                   <p class="flow-node-sub">Figma MCP / Code Connect</p>
                 </div>
@@ -553,158 +573,145 @@
               <span class="iterate-return" aria-hidden="true"></span>
             </div>
 
-            <div class="iterate-guardrails" aria-label="规则数量的上下边界">
-              <div class="iterate-boundary">
-                <p class="iterate-boundary-label zh">上界 · 规则太多</p>
-                <p class="zh">重复、冲突、过时内容会制造噪音</p>
+            <div class="iterate-guardrails" aria-label="规则数量原则">
+              <div class="iterate-guardrails-causes">
+                <article class="iterate-guardrail-bubble">
+                  <h4 class="zh">规则太多</h4>
+                  <p class="zh">重复、冲突、过时内容会制造噪音</p>
+                </article>
+                <article class="iterate-guardrail-bubble">
+                  <h4 class="zh">规则太少</h4>
+                  <p class="zh">约束不足，AI 开始自行发挥</p>
+                </article>
               </div>
-              <p class="iterate-effective zh">有效规则区间：足够明确，但不过度约束</p>
-              <div class="iterate-boundary">
-                <p class="iterate-boundary-label zh">下界 · 规则太少</p>
-                <p class="zh">约束不足，AI 开始自行发挥</p>
-              </div>
+              <svg
+                class="iterate-guardrails-brace"
+                viewBox="0 0 28 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path d="M0 6 C14 6 16 44 16 50" />
+                <path d="M0 94 C14 94 16 56 16 50" />
+                <path d="M16 50 H24" />
+                <path d="M24 50 L19.5 46.5 M24 50 L19.5 53.5" />
+              </svg>
+              <p class="iterate-effective iterate-effective--target zh">
+                有效规则区间：足够明确，但不过度约束
+              </p>
             </div>
           </section>
 
-          <section class="report-module" aria-labelledby="p01-turing-gen">
-            <h3 id="p01-turing-gen" class="zh">图灵生成的界面</h3>
-            <p class="report-module-note zh">
-              基于沉淀的结构包，图灵已能稳定生成符合音乐推规范的B端界面，将重复页面从逐页手工搭建转为按规则生成。
+          <section class="report-module turing-chat" aria-labelledby="p01-turing-gen">
+            <h3 id="p01-turing-gen" class="zh">图灵生成：智能化投歌</h3>
+            <p class="turing-chat-note zh">
+              <strong>快速验证</strong>
+              <span
+                >利用结构包，图灵可准确按设计规范出图，验证 AI
+                对话下单模式的交互逻辑。</span
+              >
             </p>
 
-            <div class="spec-scroll-grid spec-scroll-grid--phones">
-              <article class="spec-scroll-card">
-                <h4 class="spec-scroll-card-title zh">投放中</h4>
-                <div class="spec-scroll-viewport" tabindex="0" aria-label="投放中页面可滚动预览">
-                  <img
-                    src="assets/turing-gen-02-running.jpg"
-                    alt="图灵生成的投放中页面"
-                    width="1500"
-                    height="5720"
-                  />
-                </div>
-              </article>
+            <div class="turing-chat-layout">
+              <div class="turing-chat-group">
+                <p class="turing-chat-round-label">Round 1</p>
+                <div class="turing-chat-phones turing-chat-phones--3">
+                  <figure class="turing-chat-phone">
+                    <figcaption class="zh">
+                      <span class="turing-chat-screen">需求开场</span>
+                    </figcaption>
+                    <img
+                      src="assets/音乐推/AI推歌顾问 · 需求开场.png"
+                      alt="Round 1 · AI推歌顾问需求开场"
+                      width="1500"
+                      height="3248"
+                    />
+                  </figure>
 
-              <article class="spec-scroll-card">
-                <h4 class="spec-scroll-card-title zh">订单页 01</h4>
-                <div class="spec-scroll-viewport" tabindex="0" aria-label="订单页01可滚动预览">
-                  <img
-                    src="assets/turing-gen-03-order.jpg"
-                    alt="图灵生成的订单页01"
-                    width="1500"
-                    height="9080"
-                  />
-                </div>
-              </article>
+                  <figure class="turing-chat-phone">
+                    <figcaption class="zh">
+                      <span class="turing-chat-screen">歌曲诊断</span>
+                    </figcaption>
+                    <img
+                      src="assets/音乐推/AI推歌顾问 · 歌曲诊断.png"
+                      alt="Round 1 · AI推歌顾问歌曲诊断"
+                      width="1500"
+                      height="3248"
+                    />
+                  </figure>
 
-              <article class="spec-scroll-card">
-                <h4 class="spec-scroll-card-title zh">订单页 02</h4>
-                <div class="spec-scroll-viewport" tabindex="0" aria-label="订单页02可滚动预览">
-                  <img
-                    src="assets/turing-gen-04-order-2.jpg"
-                    alt="图灵生成的订单页02"
-                    width="1500"
-                    height="7046"
-                  />
+                  <figure class="turing-chat-phone">
+                    <figcaption class="zh">
+                      <span class="turing-chat-screen">诊断开场</span>
+                    </figcaption>
+                    <img
+                      src="assets/音乐推/AI推歌顾问 · 诊断开场.png"
+                      alt="Round 1 · AI推歌顾问诊断开场"
+                      width="1500"
+                      height="3248"
+                    />
+                  </figure>
                 </div>
-              </article>
+              </div>
 
-              <article class="spec-scroll-card">
-                <h4 class="spec-scroll-card-title zh">订单页 03</h4>
-                <div class="spec-scroll-viewport" tabindex="0" aria-label="订单页03可滚动预览">
-                  <img
-                    src="assets/turing-gen-05-order-3.jpg"
-                    alt="图灵生成的订单页03"
-                    width="1500"
-                    height="3248"
-                  />
-                </div>
-              </article>
+              <div class="turing-chat-bottom">
+                <div class="turing-chat-group">
+                  <p class="turing-chat-round-label">Round 2</p>
+                  <div class="turing-chat-phones turing-chat-phones--2">
+                    <figure class="turing-chat-phone">
+                      <figcaption class="zh">
+                        <span class="turing-chat-screen">方案推荐</span>
+                      </figcaption>
+                      <img
+                        src="assets/音乐推/AI推歌顾问.png"
+                        alt="Round 2 · AI推歌顾问方案推荐"
+                        width="1500"
+                        height="3248"
+                      />
+                    </figure>
 
-              <article class="spec-scroll-card">
-                <h4 class="spec-scroll-card-title zh">专业推歌支付页</h4>
-                <div class="spec-scroll-viewport" tabindex="0" aria-label="专业推歌支付页可滚动预览">
-                  <img
-                    src="assets/turing-gen-01-pay.png"
-                    alt="图灵生成的专业推歌支付页面"
-                    width="750"
-                    height="1624"
-                  />
+                    <figure class="turing-chat-phone">
+                      <figcaption class="zh">
+                        <span class="turing-chat-screen">订单确认</span>
+                      </figcaption>
+                      <img
+                        src="assets/音乐推/Document.png"
+                        alt="Round 2 · AI推歌订单确认"
+                        width="1500"
+                        height="3792"
+                      />
+                    </figure>
+                  </div>
                 </div>
-              </article>
+
+                <div class="turing-chat-group">
+                  <p class="turing-chat-round-label">Round 3</p>
+                  <div class="turing-chat-phones turing-chat-phones--1">
+                    <figure class="turing-chat-phone">
+                      <figcaption class="zh">
+                        <span class="turing-chat-screen">多档方案</span>
+                      </figcaption>
+                      <img
+                        src="assets/音乐推/Document-1.png"
+                        alt="Round 3 · AI推歌多档方案"
+                        width="1500"
+                        height="3360"
+                      />
+                    </figure>
+                  </div>
+                </div>
+              </div>
             </div>
-          </section>
-
-          <section class="report-module ai-method" aria-labelledby="ai-method-principle">
-            <p class="ai-method-kicker zh">方法外延 · 交互设计师如何使用 AI</p>
-            <h3 id="ai-method-principle" class="zh">AI 归集，人裁定——两端同构</h3>
-            <p class="report-module-note zh">
-              同一个原则，既适用于上游的需求与方案，也适用于下游的设计生产。
-            </p>
-
-            <div class="ai-method-compare">
-              <article class="ai-method-lane">
-                <header>
-                  <span class="ai-method-index">UPSTREAM</span>
-                  <h4 class="zh">上游 · 需求与方案</h4>
-                </header>
-                <div class="ai-method-step">
-                  <span class="ai-method-role ai-method-role--ai">AI</span>
-                  <div>
-                    <strong class="zh">按维度发散穷举</strong>
-                    <p class="zh">列全场景、路径与潜在风险</p>
-                  </div>
-                </div>
-                <span class="ai-method-down" aria-hidden="true">↓</span>
-                <div class="ai-method-step">
-                  <span class="ai-method-role ai-method-role--human">人</span>
-                  <div>
-                    <strong class="zh">收敛并做取舍</strong>
-                    <p class="zh">判断哪些必须做，哪些明确不做</p>
-                  </div>
-                </div>
-              </article>
-
-              <div class="ai-method-equals" aria-hidden="true">=</div>
-
-              <article class="ai-method-lane">
-                <header>
-                  <span class="ai-method-index">DOWNSTREAM</span>
-                  <h4 class="zh">下游 · 设计生产</h4>
-                </header>
-                <div class="ai-method-step">
-                  <span class="ai-method-role ai-method-role--ai">AI</span>
-                  <div>
-                    <strong class="zh">提取全部现状</strong>
-                    <p class="zh">归集色值、字号与现有组件</p>
-                  </div>
-                </div>
-                <span class="ai-method-down" aria-hidden="true">↓</span>
-                <div class="ai-method-step">
-                  <span class="ai-method-role ai-method-role--human">人</span>
-                  <div>
-                    <strong class="zh">定义正确规则</strong>
-                    <p class="zh">裁定标准、优先级与约束等级</p>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <p class="ai-method-thesis zh">
-              AI 最擅长把可能性列全，最不擅长决定哪个重要。
-            </p>
           </section>
 
           <section class="report-module ai-method" aria-labelledby="ai-method-practice">
-            <p class="ai-method-kicker zh">方法外延 · 三个具体做法</p>
+            <p class="ai-method-kicker zh">方法外延 · 交互设计师如何使用 AI</p>
             <h3 id="ai-method-practice" class="zh">怎么用 AI 才有价值</h3>
-            <p class="report-module-note zh">
-              不把判断交给 AI，而是让它帮助发现遗漏、覆盖边界并攻击方案。
+            <p class="report-module-note ai-method-lead zh">
+              AI 最擅长把可能性列全，最不擅长决定哪个重要。
             </p>
 
             <div class="ai-practice-grid">
               <article class="ai-practice-card">
-                <p class="ai-practice-num">01</p>
                 <h4 class="zh">需求背景梳理</h4>
                 <div class="ai-practice-line ai-practice-line--avoid">
                   <span class="zh">低价值</span>
@@ -712,7 +719,7 @@
                 </div>
                 <div class="ai-practice-line ai-practice-line--use">
                   <span class="zh">让 AI</span>
-                  <p class="zh">找出没说清楚、缺少依据和定义的部分</p>
+                  <p class="zh">找出 PRD 里没定义、没依据的地方</p>
                 </div>
                 <div class="ai-practice-judgement">
                   <span class="zh">人的判断</span>
@@ -721,7 +728,6 @@
               </article>
 
               <article class="ai-practice-card">
-                <p class="ai-practice-num">02</p>
                 <h4 class="zh">场景延伸</h4>
                 <div class="ai-practice-line ai-practice-line--avoid">
                   <span class="zh">低价值</span>
@@ -729,24 +735,23 @@
                 </div>
                 <div class="ai-practice-line ai-practice-line--use">
                   <span class="zh">让 AI</span>
-                  <p class="zh">按身份 × 时序 × 结果 × 环境 × 规模穷举</p>
+                  <p class="zh">以主流程为基准，列全未覆盖的情况</p>
                 </div>
                 <div class="ai-practice-judgement">
                   <span class="zh">人的判断</span>
-                  <p class="zh">分成必须做、明确不做与留给下一版</p>
+                  <p class="zh">哪些必须做，哪些这一版明确不做？</p>
                 </div>
               </article>
 
               <article class="ai-practice-card">
-                <p class="ai-practice-num">03</p>
-                <h4 class="zh">行为路径压力测试</h4>
+                <h4 class="zh">方案预演</h4>
                 <div class="ai-practice-line ai-practice-line--avoid">
                   <span class="zh">低价值</span>
                   <p class="zh">让 AI 生成通用用户旅程</p>
                 </div>
                 <div class="ai-practice-line ai-practice-line--use">
                   <span class="zh">让 AI</span>
-                  <p class="zh">做 Pre-mortem、流失归因与角色对抗</p>
+                  <p class="zh">假设方案已经失败，反推用户为什么不用</p>
                 </div>
                 <div class="ai-practice-judgement">
                   <span class="zh">人的判断</span>
@@ -755,19 +760,30 @@
               </article>
             </div>
 
-            <div class="ai-skill-strip">
-              <div>
-                <p class="ai-skill-label zh">可复用化</p>
-                <p class="ai-skill-title zh">把稳定的判断标准固化为 Skill</p>
+            <div class="ai-skill-panel" aria-labelledby="ai-skill-title">
+              <div class="ai-skill-panel-intro">
+                <p class="ai-skill-label zh">可复用化 · 下一步</p>
+                <h4 id="ai-skill-title" class="zh">
+                  把稳定下来的判断标准固化为 Skill
+                </h4>
+                <p class="ai-skill-panel-note zh">
+                  和结构化规范包同一个动作：把判断写成机器能读、能反复执行的文件。
+                </p>
               </div>
-              <div class="ai-skill-tags" aria-label="可固化为 Skill 的内容">
-                <span class="zh">需求评审清单</span>
-                <span class="zh">交互自查表</span>
-                <span class="zh">竞品分析框架</span>
+              <div class="ai-skill-list">
+                <article class="ai-skill-item">
+                  <span class="ai-skill-from zh">需求背景梳理</span>
+                  <strong class="zh">需求评审清单</strong>
+                </article>
+                <article class="ai-skill-item">
+                  <span class="ai-skill-from zh">场景延伸</span>
+                  <strong class="zh">场景清单模板</strong>
+                </article>
+                <article class="ai-skill-item">
+                  <span class="ai-skill-from zh">方案预演</span>
+                  <strong class="zh">风险预演清单</strong>
+                </article>
               </div>
-              <p class="ai-skill-note zh">
-                和结构化规范包逻辑相同：把判断写成机器能读、能反复执行的文件。
-              </p>
             </div>
           </section>
         </section>
@@ -814,10 +830,10 @@
                 </figcaption>
                 <div class="bet-origin-image">
                   <img
-                    src="assets/预测市场/kalshi-culture.png?v=2"
-                    alt="Kalshi文化与音乐类预测市场界面"
-                    width="1290"
-                    height="2796"
+                    src="assets/预测市场/kalshi-home.png?v=1"
+                    alt="Kalshi 主界面"
+                    width="375"
+                    height="812"
                   />
                 </div>
               </figure>
@@ -1057,7 +1073,7 @@
                 <div class="bet-opp-motive">
                   <span class="bet-opp-num">03</span>
                   <div>
-                    <h4 class="zh">预测感</h4>
+                    <h4 class="zh">回报可期</h4>
                     <p class="zh">想看懂走势、预计回报和揭晓时间</p>
                   </div>
                 </div>
@@ -1747,5 +1763,39 @@
         </footer>
       </article>
     </main>
+    <script>
+      (function () {
+        const nav = document.querySelector(".report-index");
+        if (!nav) return;
+
+        const links = [...nav.querySelectorAll('a[href^="#project-"]')];
+        const sections = links
+          .map((link) => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+
+        if (!sections.length) return;
+
+        const setActive = (id) => {
+          links.forEach((link) => {
+            link.classList.toggle(
+              "is-active",
+              link.getAttribute("href") === `#${id}`
+            );
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) setActive(entry.target.id);
+            });
+          },
+          { rootMargin: "-35% 0px -50% 0px", threshold: 0 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+        setActive(sections[0].id);
+      })();
+    </script>
   </body>
 </html>
