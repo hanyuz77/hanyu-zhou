@@ -3596,17 +3596,20 @@ body {
   max-height: min(50svh, 430px);
 }
 
-.bet-vote-switch {
+.bet-vote-switch,
+.pet-home-switch {
   position: relative;
   width: 100%;
 }
 
-.bet-product-phone .bet-vote-switch img {
+.bet-product-phone .bet-vote-switch img,
+.pet-visit-home .pet-home-switch img {
   width: 100%;
   animation: bet-vote-switch 4s step-end infinite;
 }
 
-.bet-product-phone .bet-vote-switch img + img {
+.bet-product-phone .bet-vote-switch img + img,
+.pet-visit-home .pet-home-switch img + img {
   position: absolute;
   inset: 0 auto auto 0;
   animation-delay: -2s;
@@ -3626,11 +3629,13 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bet-product-phone .bet-vote-switch img {
+  .bet-product-phone .bet-vote-switch img,
+  .pet-visit-home .pet-home-switch img {
     animation: none;
   }
 
-  .bet-product-phone .bet-vote-switch img + img {
+  .bet-product-phone .bet-vote-switch img + img,
+  .pet-visit-home .pet-home-switch img + img {
     opacity: 0;
   }
 }
