@@ -2179,6 +2179,10 @@ body {
   letter-spacing: 0.04em;
 }
 
+.case--report .report-resume .resume-heading {
+  font-size: 1.05rem;
+}
+
 .resume-block + .resume-block {
   margin-top: 3rem;
 }
@@ -2264,7 +2268,8 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-.resume-entry h3 {
+.resume-entry h3,
+.report-resume .resume-entry h4 {
   margin: 0 0 0.3rem;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   font-size: 1.06rem;
@@ -2273,14 +2278,16 @@ body {
   letter-spacing: 0.01em;
 }
 
-.resume-entry h3 .entry-zh {
+.resume-entry h3 .entry-zh,
+.report-resume .resume-entry h4 .entry-zh {
   font-size: 0.86em;
   font-weight: 500;
   color: rgba(34, 34, 34, 0.68);
   letter-spacing: 0.01em;
 }
 
-.resume-entry h3 .entry-zh::before {
+.resume-entry h3 .entry-zh::before,
+.report-resume .resume-entry h4 .entry-zh::before {
   content: "｜";
   color: rgba(34, 34, 34, 0.25);
   font-weight: 400;
