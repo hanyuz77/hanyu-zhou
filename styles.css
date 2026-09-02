@@ -3721,6 +3721,11 @@ body {
   width: 100%;
 }
 
+.pet-equal-phones--same-height {
+  display: grid;
+  grid-template-columns: 752fr 751fr 800fr 800fr;
+}
+
 .pet-equal-phone {
   display: flex;
   flex: 1 1 0;
@@ -4418,6 +4423,11 @@ body {
   .pet-equal-phones {
     flex-direction: column;
     align-items: center;
+  }
+
+  .pet-equal-phones--same-height {
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .pet-equal-phone {
