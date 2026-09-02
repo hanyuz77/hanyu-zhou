@@ -3514,10 +3514,7 @@ body {
 }
 
 .bet-home-group {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(0.65rem, 1.2vw, 1rem);
-  align-items: stretch;
+  display: block;
 }
 
 .bet-home-callouts {
@@ -3604,10 +3601,23 @@ body {
 }
 
 .bet-home-scroll-viewport {
-  width: 100%;
+  width: min(68%, 220px);
   height: min(50svh, 430px);
+  margin-inline: auto;
   border-radius: 24px;
   background: transparent;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 96%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 96%,
+    transparent 100%
+  );
 }
 
 .bet-product-phone--hero .bet-home-scroll-viewport img {
