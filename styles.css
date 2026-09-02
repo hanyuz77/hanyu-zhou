@@ -3203,8 +3203,11 @@ body {
 }
 
 .bet-volume-growth .bet-volume-arrow {
+  align-self: end;
+  margin-bottom: 0.16rem;
   color: rgba(255, 255, 255, 0.38);
   font-size: 1rem;
+  line-height: 1.35;
 }
 
 .bet-proof-callout {
